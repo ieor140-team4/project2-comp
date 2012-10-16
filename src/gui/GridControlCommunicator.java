@@ -44,7 +44,8 @@ public class GridControlCommunicator
     {
       System.out.println(" Comm send "+x+" "+y);
       try{
-    	 dataOut.writeInt(0); // replace with useful code
+    	 dataOut.writeInt(x);
+    	 dataOut.writeInt(y);
       } catch(IOException e)
       {
         System.out.print(e);
