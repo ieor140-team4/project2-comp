@@ -37,27 +37,26 @@ public class BTSend {
 		
 		DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
 		DataInputStream dis = new DataInputStream(conn.getInputStream());
+
+		try {
+			System.out.println("Sending " + (i*30000));
+			dos.writeInt((i*30000));
+			dos.flush();			
 				
-		for(int i=0;i<100;i++) {
-			try {
-				System.out.println("Sending " + (i*30000));
-				dos.writeInt((i*30000));
-				dos.flush();			
-				
-			} catch (IOException ioe) {
-				System.out.println("IO Exception writing bytes:");
-				System.out.println(ioe.getMessage());
-				break;
-			}
-			
-			try {
-				System.out.println("Received " + dis.readInt());
-			} catch (IOException ioe) {
-				System.out.println("IO Exception reading bytes:");
-				System.out.println(ioe.getMessage());
-				break;
-			}
+		} catch (IOException ioe) {
+			System.out.println("IO Exception writing bytes:");
+			System.out.println(ioe.getMessage());
+			break;
 		}
+			
+		try {
+			System.out.println("Received " + dis.readInt());
+		} catch (IOException ioe) {
+			System.out.println("IO Exception reading bytes:");
+			System.out.println(ioe.getMessage());
+			break;
+		}
+
 		
 		try {
 			dis.close();
