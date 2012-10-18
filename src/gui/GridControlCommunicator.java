@@ -77,8 +77,9 @@ public class GridControlCommunicator
 			{
 				try
 				{
-					//            	read the message sent by the robot
-					dataIn.readInt(); // replace with something useful
+					header = dataIn.readInt();
+					x = dataIn.readInt();
+					y = dataIn.readInt();
 
 				} catch (IOException e)
 				{
@@ -87,10 +88,11 @@ public class GridControlCommunicator
 				}
 				message = "Recieved "+x+" "+y+" code "+header;
 				control.setMessage(message);
-				if (header  == 0)
+				if (header  == 0) {
 					control.drawRobotPath(x, y);
-				else
+				} else {
 					control.drawObstacle(x, y);
+				}
 			}
 		}
 	}
