@@ -40,6 +40,12 @@ public class GridControlCommunicator
 		else System.out.println(" no connection ");
 	}
 
+	/**
+	 * Sends an x and a y to the robot to indicate what point it should travel to.
+	 * 
+	 * @param x the x coordinate to travel to
+	 * @param y the y coordinate to travel to
+	 */
 	public void send(int x, int y)
 	{
 		System.out.println(" Comm send "+x+" "+y);
@@ -64,7 +70,16 @@ public class GridControlCommunicator
 		int count = 0;
 		boolean isRunning = false;
 
-		//assumes robot message structure is 3 integers:  header, x,y    
+		/**
+		 * Runs the reader and takes in readings that the robot sends. The robot's
+		 * communications will contain three pieces of information in order:
+		 * 
+		 * 1) a header that indicates the type of message sent. 0 for the robot's
+		 * position, 1 for an obstacle's position
+		 * 2) the x coordinate of that position
+		 * 3) the y coordinate of that position
+		 *    
+		 */
 		public void run()
 		{
 			System.out.println(" reader started GridControlComm1 ");

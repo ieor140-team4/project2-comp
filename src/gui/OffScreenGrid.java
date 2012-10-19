@@ -256,15 +256,21 @@ public class OffScreenGrid extends javax.swing.JPanel
 		clear();
 	}//GEN-LAST:event_clearBActionPerformed
 
+	/**
+	 * Translates a click on the screen to a selection of destination in the text fields.
+	 * 
+	 * @param evt
+	 */
 	private void formMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_formMouseClicked
 	{
-		clearSpot(robotPrevX, robotPrevY, Color.green);
+		clearSpot(xpixel(destXo), ypixel(destYo), Color.green);
 		
 		destXo = gridX(evt.getX());
 		destYo = gridY(evt.getY());
 		
 		textX.setText(destXo + "");
 		textY.setText(destYo + "");
+		drawDest(destXo, destYo);
 	}//GEN-LAST:event_formMouseClicked
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
