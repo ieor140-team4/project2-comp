@@ -258,7 +258,13 @@ public class OffScreenGrid extends javax.swing.JPanel
 
 	private void formMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_formMouseClicked
 	{
+		clearSpot(robotPrevX, robotPrevY, Color.green);
 		
+		destXo = gridX(evt.getX());
+		destYo = gridY(evt.getY());
+		
+		textX.setText(destXo + "");
+		textY.setText(destYo + "");
 	}//GEN-LAST:event_formMouseClicked
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables

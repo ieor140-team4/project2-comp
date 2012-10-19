@@ -137,33 +137,36 @@ public class GridNavController extends JFrame implements GNC
 	private class SendButtonActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) 
 		{
-			System.out.println("send button");
-			int x = 0;
-			int y = 0;
-			try
-			{
-				x = Integer.parseInt(xField.getText());
-				System.out.println(" get x " + x);
-			} catch (Exception e)
-			{
-				setMessage("Problem with X field");
-				return;
-			}
-			try
-			{
-				y = Integer.parseInt(yField.getText());
-				System.out.println(" get y " + y);
-			} catch (Exception e)
-			{
-				setMessage("Problem  with Y field");
-				return;
-			}
-			communicator.send(x, y);
-			System.out.println("send "+x+" "+y);
-			repaint();
+			sendXY();
 		}
 	}
 
+	public void sendXY() {
+		System.out.println("send button");
+		int x = 0;
+		int y = 0;
+		try
+		{
+			x = Integer.parseInt(xField.getText());
+			System.out.println(" get x " + x);
+		} catch (Exception e)
+		{
+			setMessage("Problem with X field");
+			return;
+		}
+		try
+		{
+			y = Integer.parseInt(yField.getText());
+			System.out.println(" get y " + y);
+		} catch (Exception e)
+		{
+			setMessage("Problem  with Y field");
+			return;
+		}
+		communicator.send(x, y);
+		System.out.println("send "+x+" "+y);
+		repaint();
+	}
 	
 
 	public void setMessage(String message)
